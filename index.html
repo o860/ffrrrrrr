@@ -3,92 +3,282 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Book Nook - Your Favorite Bookstore</title>
+    <title>Chapter & Verse | Modern Bookstore</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <!-- Header -->
     <header class="header">
         <nav class="navbar">
             <div class="logo">
-                <h1>📚 The Book Nook</h1>
+                <i class="fas fa-book-open"></i>
+                <h1>Chapter & Verse</h1>
             </div>
             <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
+                <li><a href="#home" class="active">Home</a></li>
                 <li><a href="#books">Books</a></li>
                 <li><a href="#categories">Categories</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <div class="cart-icon">
-                <span>🛒</span>
-                <span class="cart-count">0</span>
-            </div>
-            <div class="menu-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
+            <div class="header-actions">
+                <div class="search-box">
+                    <input type="text" placeholder="Search books..." id="search-input">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+                <div class="cart-icon">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count">0</span>
+                </div>
+                <button class="menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
             </div>
         </nav>
     </header>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
+        <div class="hero-overlay"></div>
         <div class="hero-content">
-            <h2>Discover Your Next Great Read</h2>
-            <p>Explore our curated collection of books from bestselling authors and hidden gems</p>
-            <a href="#books" class="btn-primary">Browse Books</a>
+            <span class="hero-badge">New Arrivals Weekly</span>
+            <h1>Find Your Next <span class="highlight">Great Adventure</span></h1>
+            <p>Curated books for curious minds. From bestsellers to hidden gems, discover stories that inspire, educate, and entertain.</p>
+            <div class="hero-buttons">
+                <a href="#books" class="btn-primary">
+                    <i class="fas fa-book"></i> Browse Collection
+                </a>
+                <a href="#categories" class="btn-secondary">
+                    <i class="fas fa-th-large"></i> Explore Categories
+                </a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number">10K+</span>
+                    <span class="stat-label">Books</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">50K+</span>
+                    <span class="stat-label">Happy Readers</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">4.9</span>
+                    <span class="stat-label">Rating</span>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
         </div>
     </section>
 
     <!-- Featured Books Section -->
     <section id="books" class="books-section">
         <div class="container">
-            <h2 class="section-title">Featured Books</h2>
+            <div class="section-header">
+                <div class="section-info">
+                    <span class="section-subtitle">Handpicked Selection</span>
+                    <h2 class="section-title">Featured Books</h2>
+                </div>
+                <div class="section-actions">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="bestseller">Bestsellers</button>
+                    <button class="filter-btn" data-filter="new">New Releases</button>
+                    <button class="filter-btn" data-filter="sale">On Sale</button>
+                </div>
+            </div>
             <div class="books-grid">
-                <div class="book-card">
-                    <div class="book-image">📖</div>
-                    <h3>The Great Adventure</h3>
-                    <p class="author">by Jane Smith</p>
-                    <p class="price">$24.99</p>
-                    <button class="btn-add-cart">Add to Cart</button>
+                <div class="book-card" data-category="bestseller">
+                    <div class="book-badge">Bestseller</div>
+                    <div class="book-cover">
+                        <div class="book-placeholder">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <div class="book-actions">
+                            <button class="quick-view" title="Quick View"><i class="fas fa-eye"></i></button>
+                            <button class="wishlist" title="Add to Wishlist"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                    <div class="book-info">
+                        <h3>The Midnight Library</h3>
+                        <p class="author">Matt Haig</p>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>(4.5)</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="price">$24.99</span>
+                            <span class="original-price">$29.99</span>
+                        </div>
+                        <button class="btn-add-cart">
+                            <i class="fas fa-shopping-bag"></i> Add to Cart
+                        </button>
+                    </div>
                 </div>
-                <div class="book-card">
-                    <div class="book-image">📕</div>
-                    <h3>Mystery Manor</h3>
-                    <p class="author">by John Doe</p>
-                    <p class="price">$19.99</p>
-                    <button class="btn-add-cart">Add to Cart</button>
+                <div class="book-card" data-category="new">
+                    <div class="book-badge new">New</div>
+                    <div class="book-cover">
+                        <div class="book-placeholder">
+                            <i class="fas fa-book-open"></i>
+                        </div>
+                        <div class="book-actions">
+                            <button class="quick-view" title="Quick View"><i class="fas fa-eye"></i></button>
+                            <button class="wishlist" title="Add to Wishlist"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                    <div class="book-info">
+                        <h3>Tomorrow, and Tomorrow</h3>
+                        <p class="author">Gabrielle Zevin</p>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(5.0)</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="price">$28.99</span>
+                        </div>
+                        <button class="btn-add-cart">
+                            <i class="fas fa-shopping-bag"></i> Add to Cart
+                        </button>
+                    </div>
                 </div>
-                <div class="book-card">
-                    <div class="book-image">📗</div>
-                    <h3>Science Explained</h3>
-                    <p class="author">by Dr. Emily Chen</p>
-                    <p class="price">$29.99</p>
-                    <button class="btn-add-cart">Add to Cart</button>
+                <div class="book-card" data-category="sale">
+                    <div class="book-badge sale">-20%</div>
+                    <div class="book-cover">
+                        <div class="book-placeholder">
+                            <i class="fas fa-flask"></i>
+                        </div>
+                        <div class="book-actions">
+                            <button class="quick-view" title="Quick View"><i class="fas fa-eye"></i></button>
+                            <button class="wishlist" title="Add to Wishlist"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                    <div class="book-info">
+                        <h3>The Science of Everything</h3>
+                        <p class="author">Dr. James Mitchell</p>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span>(4.0)</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="price">$19.99</span>
+                            <span class="original-price">$24.99</span>
+                        </div>
+                        <button class="btn-add-cart">
+                            <i class="fas fa-shopping-bag"></i> Add to Cart
+                        </button>
+                    </div>
                 </div>
-                <div class="book-card">
-                    <div class="book-image">📘</div>
-                    <h3>Historical Tales</h3>
-                    <p class="author">by Michael Brown</p>
-                    <p class="price">$22.99</p>
-                    <button class="btn-add-cart">Add to Cart</button>
+                <div class="book-card" data-category="bestseller">
+                    <div class="book-cover">
+                        <div class="book-placeholder">
+                            <i class="fas fa-landmark"></i>
+                        </div>
+                        <div class="book-actions">
+                            <button class="quick-view" title="Quick View"><i class="fas fa-eye"></i></button>
+                            <button class="wishlist" title="Add to Wishlist"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                    <div class="book-info">
+                        <h3>The Four Winds</h3>
+                        <p class="author">Kristin Hannah</p>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>(4.7)</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="price">$26.99</span>
+                        </div>
+                        <button class="btn-add-cart">
+                            <i class="fas fa-shopping-bag"></i> Add to Cart
+                        </button>
+                    </div>
                 </div>
-                <div class="book-card">
-                    <div class="book-image">📙</div>
-                    <h3>Cooking Mastery</h3>
-                    <p class="author">by Chef Anna Lee</p>
-                    <p class="price">$34.99</p>
-                    <button class="btn-add-cart">Add to Cart</button>
+                <div class="book-card" data-category="new">
+                    <div class="book-badge new">New</div>
+                    <div class="book-cover">
+                        <div class="book-placeholder">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <div class="book-actions">
+                            <button class="quick-view" title="Quick View"><i class="fas fa-eye"></i></button>
+                            <button class="wishlist" title="Add to Wishlist"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                    <div class="book-info">
+                        <h3>Salt, Fat, Acid, Heat</h3>
+                        <p class="author">Samin Nosrat</p>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(4.9)</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="price">$32.99</span>
+                        </div>
+                        <button class="btn-add-cart">
+                            <i class="fas fa-shopping-bag"></i> Add to Cart
+                        </button>
+                    </div>
                 </div>
-                <div class="book-card">
-                    <div class="book-image">📔</div>
-                    <h3>Poetry Collection</h3>
-                    <p class="author">by Robert Frost Jr.</p>
-                    <p class="price">$16.99</p>
-                    <button class="btn-add-cart">Add to Cart</button>
+                <div class="book-card" data-category="sale">
+                    <div class="book-badge sale">-30%</div>
+                    <div class="book-cover">
+                        <div class="book-placeholder">
+                            <i class="fas fa-feather-alt"></i>
+                        </div>
+                        <div class="book-actions">
+                            <button class="quick-view" title="Quick View"><i class="fas fa-eye"></i></button>
+                            <button class="wishlist" title="Add to Wishlist"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                    <div class="book-info">
+                        <h3>Modern Poetry Anthology</h3>
+                        <p class="author">Various Authors</p>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <i class="far fa-star"></i>
+                            <span>(3.5)</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="price">$14.99</span>
+                            <span class="original-price">$21.99</span>
+                        </div>
+                        <button class="btn-add-cart">
+                            <i class="fas fa-shopping-bag"></i> Add to Cart
+                        </button>
+                    </div>
                 </div>
+            </div>
+            <div class="view-all-container">
+                <a href="#" class="btn-view-all">
+                    View All Books <i class="fas fa-arrow-right"></i>
+                </a>
             </div>
         </div>
     </section>
@@ -96,31 +286,60 @@
     <!-- Categories Section -->
     <section id="categories" class="categories-section">
         <div class="container">
-            <h2 class="section-title">Browse by Category</h2>
+            <div class="section-header">
+                <div class="section-info">
+                    <span class="section-subtitle">Browse by Topic</span>
+                    <h2 class="section-title">Popular Categories</h2>
+                </div>
+            </div>
             <div class="categories-grid">
-                <div class="category-card">
+                <div class="category-card" data-category="fiction">
+                    <div class="category-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
                     <h3>Fiction</h3>
                     <p>Novels & Stories</p>
+                    <span class="category-count">2,450 books</span>
                 </div>
-                <div class="category-card">
+                <div class="category-card" data-category="non-fiction">
+                    <div class="category-icon">
+                        <i class="fas fa-user-edit"></i>
+                    </div>
                     <h3>Non-Fiction</h3>
                     <p>Biographies & Memoirs</p>
+                    <span class="category-count">1,890 books</span>
                 </div>
-                <div class="category-card">
+                <div class="category-card" data-category="science">
+                    <div class="category-icon">
+                        <i class="fas fa-atom"></i>
+                    </div>
                     <h3>Science</h3>
                     <p>Technology & Nature</p>
+                    <span class="category-count">1,230 books</span>
                 </div>
-                <div class="category-card">
+                <div class="category-card" data-category="history">
+                    <div class="category-icon">
+                        <i class="fas fa-landmark"></i>
+                    </div>
                     <h3>History</h3>
                     <p>Past & Present</p>
+                    <span class="category-count">980 books</span>
                 </div>
-                <div class="category-card">
+                <div class="category-card" data-category="children">
+                    <div class="category-icon">
+                        <i class="fas fa-child"></i>
+                    </div>
                     <h3>Children</h3>
                     <p>Kids & Young Adult</p>
+                    <span class="category-count">3,120 books</span>
                 </div>
-                <div class="category-card">
+                <div class="category-card" data-category="cooking">
+                    <div class="category-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
                     <h3>Cooking</h3>
                     <p>Recipes & Food</p>
+                    <span class="category-count">756 books</span>
                 </div>
             </div>
         </div>
@@ -129,25 +348,60 @@
     <!-- About Section -->
     <section id="about" class="about-section">
         <div class="container">
-            <h2 class="section-title">About Us</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>Welcome to The Book Nook, your independent bookstore dedicated to bringing you the finest selection of books since 2010. We believe in the power of stories to inspire, educate, and entertain.</p>
-                    <p>Our carefully curated collection features everything from bestselling novels to rare finds, ensuring there's something for every reader. Visit us in-store or browse our online catalog.</p>
-                    <div class="features">
-                        <div class="feature">
-                            <span>🚚</span>
-                            <p>Free Shipping on Orders $50+</p>
+            <div class="about-grid">
+                <div class="about-image">
+                    <div class="image-placeholder">
+                        <i class="fas fa-store"></i>
+                    </div>
+                    <div class="experience-badge">
+                        <span class="years">14+</span>
+                        <span class="text">Years of Excellence</span>
+                    </div>
+                </div>
+                <div class="about-content">
+                    <span class="section-subtitle">Our Story</span>
+                    <h2 class="section-title">More Than Just a Bookstore</h2>
+                    <p class="about-text">Welcome to Chapter & Verse, your premier destination for literary excellence since 2010. We're passionate about connecting readers with stories that matter.</p>
+                    <p class="about-text">Our carefully curated collection features everything from international bestsellers to hidden literary gems. Whether you're a devoted bibliophile or discovering your next favorite author, our knowledgeable staff is here to guide your journey.</p>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-truck"></i>
+                            </div>
+                            <div class="feature-info">
+                                <h4>Free Shipping</h4>
+                                <p>On orders over $50</p>
+                            </div>
                         </div>
-                        <div class="feature">
-                            <span>💝</span>
-                            <p>Gift Wrapping Available</p>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-gift"></i>
+                            </div>
+                            <div class="feature-info">
+                                <h4>Gift Services</h4>
+                                <p>Beautiful wrapping available</p>
+                            </div>
                         </div>
-                        <div class="feature">
-                            <span>📚</span>
-                            <p>Book Club Discounts</p>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="feature-info">
+                                <h4>Book Clubs</h4>
+                                <p>Special member discounts</p>
+                            </div>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-undo"></i>
+                            </div>
+                            <div class="feature-info">
+                                <h4>Easy Returns</h4>
+                                <p>30-day return policy</p>
+                            </div>
                         </div>
                     </div>
+                    <a href="#contact" class="btn-primary">Visit Our Store</a>
                 </div>
             </div>
         </div>
@@ -156,32 +410,81 @@
     <!-- Contact Section -->
     <section id="contact" class="contact-section">
         <div class="container">
-            <h2 class="section-title">Contact Us</h2>
-            <div class="contact-content">
+            <div class="section-header">
+                <div class="section-info">
+                    <span class="section-subtitle">Get In Touch</span>
+                    <h2 class="section-title">Visit Us Today</h2>
+                </div>
+            </div>
+            <div class="contact-grid">
                 <div class="contact-info">
-                    <div class="info-item">
-                        <h3>📍 Address</h3>
-                        <p>123 Book Street<br>Literary Town, LT 12345</p>
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Our Location</h4>
+                            <p>123 Literary Avenue<br>Booktown, NY 10001</p>
+                        </div>
                     </div>
-                    <div class="info-item">
-                        <h3>📞 Phone</h3>
-                        <p>(555) 123-4567</p>
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Phone Number</h4>
+                            <p>(555) 123-4567<br>(555) 987-6543</p>
+                        </div>
                     </div>
-                    <div class="info-item">
-                        <h3>✉️ Email</h3>
-                        <p>hello@thebooknook.com</p>
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Email Address</h4>
+                            <p>hello@chapterverse.com<br>support@chapterverse.com</p>
+                        </div>
                     </div>
-                    <div class="info-item">
-                        <h3>🕐 Hours</h3>
-                        <p>Mon-Sat: 9AM - 8PM<br>Sun: 11AM - 6PM</p>
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Opening Hours</h4>
+                            <p>Mon-Sat: 9AM - 8PM<br>Sunday: 11AM - 6PM</p>
+                        </div>
                     </div>
                 </div>
-                <form class="contact-form">
-                    <input type="text" placeholder="Your Name" required>
-                    <input type="email" placeholder="Your Email" required>
-                    <textarea placeholder="Your Message" rows="5" required></textarea>
-                    <button type="submit" class="btn-primary">Send Message</button>
-                </form>
+                <div class="contact-form-wrapper">
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name" placeholder="John Doe" required>
+                                <span class="error-message"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" placeholder="john@example.com" required>
+                                <span class="error-message"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" placeholder="How can we help?" required>
+                            <span class="error-message"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" placeholder="Your message..." rows="5" required></textarea>
+                            <span class="error-message"></span>
+                        </div>
+                        <button type="submit" class="btn-primary btn-submit">
+                            <span>Send Message</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
@@ -189,34 +492,83 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>The Book Nook</h3>
-                    <p>Your destination for great reads and literary adventures.</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#books">Books</a></li>
-                        <li><a href="#categories">Categories</a></li>
-                        <li><a href="#about">About</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Follow Us</h4>
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <i class="fas fa-book-open"></i>
+                        <h2>Chapter & Verse</h2>
+                    </div>
+                    <p>Your premier destination for literary excellence. Discover stories that inspire, educate, and entertain.</p>
                     <div class="social-links">
-                        <a href="#">Facebook</a>
-                        <a href="#">Twitter</a>
-                        <a href="#">Instagram</a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Goodreads"><i class="fab fa-goodreads"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Quick Links</h4>
+                        <ul>
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#books">Books</a></li>
+                            <li><a href="#categories">Categories</a></li>
+                            <li><a href="#about">About Us</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Categories</h4>
+                        <ul>
+                            <li><a href="#">Fiction</a></li>
+                            <li><a href="#">Non-Fiction</a></li>
+                            <li><a href="#">Science</a></li>
+                            <li><a href="#">History</a></li>
+                            <li><a href="#">Children</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Customer Service</h4>
+                        <ul>
+                            <li><a href="#">FAQ</a></li>
+                            <li><a href="#">Shipping Info</a></li>
+                            <li><a href="#">Returns</a></li>
+                            <li><a href="#">Track Order</a></li>
+                            <li><a href="#">Gift Cards</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-newsletter">
+                    <h4>Stay Updated</h4>
+                    <p>Subscribe to our newsletter for new arrivals and exclusive offers.</p>
+                    <form class="newsletter-form" id="newsletterForm">
+                        <input type="email" placeholder="Enter your email" required>
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                    <div class="payment-methods">
+                        <i class="fab fa-cc-visa"></i>
+                        <i class="fab fa-cc-mastercard"></i>
+                        <i class="fab fa-cc-paypal"></i>
+                        <i class="fab fa-cc-apple-pay"></i>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 The Book Nook. All rights reserved.</p>
+                <p>&copy; 2024 Chapter & Verse Bookstore. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
             </div>
         </div>
     </footer>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle"></i>
+        <span>Item added to cart!</span>
+    </div>
 
     <script src="script.js"></script>
 </body>
